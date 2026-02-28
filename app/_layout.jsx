@@ -3,11 +3,17 @@ import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import { Colors } from "../constants/Colors";
 import { StatusBar } from "expo-status-bar";
 
+import { ConvexProvider, ConvexReactClient } from "convex/react";
+
+const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL, {
+  unsavedChangesWarning: false,
+});
+
 const Layout = () => {
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme] ?? Colors.light;
   return (
-    <>
+    <ConvexProvider client={convex}>
       <StatusBar value="auto" />
       <Stack
         screenOptions={{
@@ -22,7 +28,7 @@ const Layout = () => {
         <Stack.Screen name="about" options={{ title: "About" }} />
         <Stack.Screen name="contact" options={{ title: "Contact" }} />
       </Stack>
-    </>
+    </ConvexProvider>
   );
 };
 

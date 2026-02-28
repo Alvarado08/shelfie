@@ -5,8 +5,18 @@ import ThemedView from "../components/ThemedView";
 import ThemedLogo from "../components/ThemedLogo";
 import Spacer from "../components/Spacer";
 import ThemedText from "../components/ThemedText";
+// import ThemedButton from "../components/ThemedButton";
+
+// import { api } from "../convex/_generated/api";
+// import { useMutation, useQuery } from "convex/react";
 
 const Home = () => {
+  // const books = useQuery(api.books.getBooks);
+  // console.log("Books from Convex:", books);
+
+  // const addBook = useMutation(api.books.addBook);
+  // const clearBooks = useMutation(api.books.clearAllBooks);
+
   return (
     <ThemedView style={styles.container}>
       <ThemedLogo style={styles.image} />
@@ -30,6 +40,20 @@ const Home = () => {
       <Link href="/profile" style={styles.link}>
         <ThemedText>Profile</ThemedText>
       </Link>
+      {/* <ThemedButton
+        onPress={() =>
+          addBook({
+            title: "New Book",
+            author: "Author Name",
+            publishedYear: 2024,
+          })
+        }
+      >
+        <Text style={{ color: "#f2f2f2" }}>Create Book</Text>
+      </ThemedButton>
+      <ThemedButton onPress={() => clearBooks()}>
+        <Text style={{ color: "#f2f2f2" }}>Clear Books</Text>
+      </ThemedButton> */}
     </ThemedView>
   );
 };
